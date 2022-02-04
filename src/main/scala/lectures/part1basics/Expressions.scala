@@ -64,4 +64,24 @@ object Expressions extends App {
 
   // Scala all about gimme a value
 
+
+  // 1. diff bt "hello" and println("hello")
+  // String and Unit ?
+
+  val someValue = {
+    2 < 3
+  }
+  // true ?
+
+  val someOtherValue = {
+    if(someValue) 239 else 986
+    42
+  }
+  // 42 ?
+  // the if became irrelevant because in a expression lang the return isn't some escape, it's the final thing
+
+
+
+
+
 }
