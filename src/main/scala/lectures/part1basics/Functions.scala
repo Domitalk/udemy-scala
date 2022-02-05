@@ -34,6 +34,42 @@ object Functions extends App {
     aSmallerFunction(n, n-1)
   }
 
+  // 1. greeting function
+  // 2. factorial 1 * 2 * 3 .. * n
+  // 3. a fibonacci function
+
+  def aGreetingFunction(name: String, age: Int) = {
+    println("Hi my name is " + name + " and I am " + age + " years old")
+//    println("Hi my name is $name and I am $age years old")
+  }
+
+  aGreetingFunction("Dominic", 36)
+
+  def aFactorialFunction(n: Int): Int = {
+
+    def theRecursiveFunction(holdingVar: Int, nextInt: Int): Int = {
+      if (nextInt > 0) theRecursiveFunction(holdingVar * nextInt, nextInt - 1) else holdingVar
+    }
+
+    theRecursiveFunction(1, n)
+  }
+
+  println(aFactorialFunction(3))
+
+
+  def aFibonacciFunction(n: Int): Int = {
+    def theRecurse(first: Int, second: Int, currentSpot: Int): Int = {
+      val third = first + second
+      if (currentSpot != n) theRecurse(second, third, currentSpot + 1) else third
+    }
+
+    if (n > 2) theRecurse(1, 1, 3) else 1
+
+  }
+
+  println(aFibonacciFunction(5))
+
+  
 
 
 }
