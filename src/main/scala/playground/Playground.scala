@@ -21,6 +21,4 @@ object Playground extends App {
 //  isPrime(6)
   isPrime(5)
 
-
-
 }
