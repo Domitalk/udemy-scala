@@ -69,6 +69,31 @@ object Functions extends App {
 
   println(aFibonacciFunction(5))
 
+  def isNumberPrime(number: Int): Boolean = {
+
+    def goDeeper(number: Int, holdingVar: Int): Boolean = {
+
+      val numberDividedByHolding = number % holdingVar
+      // if there is no remainder, it was NOT a prime bc it was divisible perfectly
+      if (numberDividedByHolding == 0) {
+        false
+      } else {
+        // at the end of valid increments
+        if (holdingVar == 2) {
+          true
+        } else {
+          goDeeper(number, holdingVar - 1)
+        }
+      }
+
+    }
+
+    if (number > 1) goDeeper(number, number - 1) else false
+
+  }
+
+  println(isNumberPrime(13))
+  println(isNumberPrime(15))
   
 
 
