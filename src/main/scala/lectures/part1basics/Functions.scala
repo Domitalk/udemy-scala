@@ -56,6 +56,27 @@ object Functions extends App {
 
   println(aFactorialFunction(3))
 
+  // this is way better than what I had written
+  // just a simple fucntion that takes an Int
+  // if it's less than or equal to 0, it returns 1
+  // if it's a valid number then we multiply n by whatever a recursion n - 1 gives us
+  // that means let's say 4 is given at first
+  // 4 *
+  //  ( 3 *
+  //    ( 2 *
+  //      (1)
+  //     )
+  //   )
+
+
+
+  // video example for optimal
+  def factorial(n: Int): Int =
+    if (n <= 0) 1
+    else n * factorial(n-1)
+
+
+
 
   def aFibonacciFunction(n: Int): Int = {
     def theRecurse(first: Int, second: Int, currentSpot: Int): Int = {
@@ -68,6 +89,21 @@ object Functions extends App {
   }
 
   println(aFibonacciFunction(5))
+
+  // try again with the simple recursion example before watching the video explanation
+  def fibbs(n: Int, first: Int, second: Int, place: Int): Int = {
+    val third = first + second
+    if (n <= place) third
+    else fibbs(n, second, third, place + 1)
+  }
+
+  // video example
+  def fibonacci(n: Int): Int =
+    if (n <= 2) 1
+    else fibonacci(n - 1) + fibonacci(n - 2)
+
+
+
 
   def isNumberPrime(number: Int): Boolean = {
 
@@ -94,7 +130,18 @@ object Functions extends App {
 
   println(isNumberPrime(13))
   println(isNumberPrime(15))
-  
+
+  // video example
+  def isPrime(n: Int): Boolean = {
+
+    def isPrimeUntil(t: Int): Boolean = {
+      if (t <= 1) true
+      else n % t != 0 && isPrimeUntil(t -1)
+    }
+
+    isPrimeUntil(n / 2)
+    
+  }
 
 
 }
