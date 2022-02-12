@@ -1,5 +1,7 @@
 package lectures.part1basics
 
+import scala.annotation.tailrec
+
 object Recursion extends App {
 
   def factorial(n: Int): Int = {
@@ -20,7 +22,7 @@ object Recursion extends App {
     factorialHelper(n, 1)
   }
 
-  println(factorial(10))
+//  println(factorial(10))
   // anotherFactorial(10) = factorialHelper(10, 1)
   //
   // ... factorialHelper(9, 10 * 1)
@@ -53,14 +55,40 @@ object Recursion extends App {
   3. fibonacci function with a tail recursion
   */
 
+  // OOPS I DID POPPER NOT CONCAT
   def stringOfNineLives(inputString: String, n: Int): String = {
-
+    @tailrec
+    def tailHelper(newString: String, newNumber: Int): String = {
+      if (newNumber == 0) newString
+      else tailHelper(newString.substring(0, newString.length - 1), newNumber - 1)
+    }
+    tailHelper(inputString, n)
   }
+//  println(stringOfNineLives("abcdef", 3))
+
+  @tailrec
+  def concatMe(inputString: String, n: Int, accumulator: String): String = {
+    if (n <= 0) accumulator
+    else concatMe(inputString, n - 1, inputString + accumulator)
+  }
+//  println(concatMe("abc", 6, ""))
+
   def optimusPrime(n: Int): Boolean = {
 
+    @tailrec
+    def recurseMe(newNumber: Int, keepGoing: Boolean): Boolean = {
+      if (newNumber <= 1) true
+      else if (!keepGoing || n % newNumber == 0) false
+      else recurseMe(newNumber - 1, true)
+    }
+    recurseMe(n - 1, true)
   }
+
+//  println(optimusPrime(7))
+
   def fizboTheClown(n: Int): Int = {
 
+    1
   }
 
 }
