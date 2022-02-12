@@ -84,11 +84,47 @@ object Recursion extends App {
     recurseMe(n - 1, true)
   }
 
+
+  // video answer to isPrime
+  def isPrime(n: Int): Boolean = {
+    @tailrec
+    def isPrimeTailrec(t: Int, isStillPrime: Boolean): Boolean = {
+      if (!isStillPrime) false
+      else if (t <= 1) true
+      else isPrimeTailrec(t - 1, (n % t != 0) && isStillPrime)
+    }
+    isPrimeTailrec(n / 2, true )
+  }
+
 //  println(optimusPrime(7))
 
+  // oops, i totally forgot what a fibonacci does, so i did it wrong. let's try again
   def fizboTheClown(n: Int): Int = {
 
-    1
+    @tailrec
+    def recurseTheFizz(newNumber: Int, accumulator: Int): Int = {
+      if (newNumber <= 0) accumulator
+      else recurseTheFizz(newNumber - 1, newNumber * accumulator)
+    }
+
+    recurseTheFizz(n, 1)
   }
+//  println(fizboTheClown(4))
+
+//  println(fizboTheClown(4))
+
+  def newFizbo(n: Int): Int = {
+    @tailrec
+    def fizboRecursive(i: Int, last: Int, nextToLast: Int): Int = {
+      if (i >= n) last
+      else fizboRecursive(i + 1, last + nextToLast, last)
+    }
+    if (n <= 2) 1
+    else fizboRecursive(2, 1, 1)
+  }
+
+  println(newFizbo(8))
+
+  // video answer to fibonacci
 
 }
