@@ -43,4 +43,24 @@ object Recursion extends App {
   // JVM won't have to carry the temp number, it can close out first
   // What was tripping up the previous method was the fact that it called itself when saving the val
   // We were creating a jenga tower, while the tail recursion is more like a domino
+
+
+
+  // CHALLENGES
+  /*
+  1. concat a string n times
+  2. IsPrime function as a tail recursion
+  3. fibonacci function with a tail recursion
+  */
+
+  def stringOfNineLives(inputString: String, n: Int): String = {
+
+  }
+  def optimusPrime(n: Int): Boolean = {
+
+  }
+  def fizboTheClown(n: Int): Int = {
+
+  }
+
 }
