@@ -17,9 +17,9 @@ object TypeInference extends App {
   // the reason is, compiler doesn't want to nestle down into the recursion
   // it can't go all the way in with all the possibilities just to help you when it compiles
   // it needs a stated return type so the runtime/compile isn't an unmanageable mess
-  def factorial(n: Int) =
-    if (n <= 0) 1
-    else n * factorial(n - 1)
-
-
+//  def factorial(n: Int) =
+//    if (n <= 0) 1
+//    else n * factorial(n - 1)
+//
+//
 }
