@@ -10,6 +10,7 @@ object OOBasics extends App {
 
   // after adding val to constructor this works
   println(person.age)
+  person.greet("Dom")
 }
 // constructor is super simple
 class Person (name: String, val age: Int) {
@@ -17,4 +18,21 @@ class Person (name: String, val age: Int) {
   // x is now a field. so it can be accessed
   val x = 2
   println(1 + 3)
+
+  // inside def is method
+  def greet(name: String): Unit = println(s"$name says: Hi, $name")
+  // this.name would be the class's field
+  // name would be the arg passed
+
+  // overloading would be diff params/ diff param types
+  // so I can't just greet() x2
+
+  // auxiliary constructor, basically a follow up constructor
+  def this(name: String) = this(name, 0)
+  // aux constructor can only call constructor
+  // so it's just a funnel to get defaults? instead you can give defaults for the constructor at the class definition up top=
+  def this() = this("John Doe")
+
+
+
 }
