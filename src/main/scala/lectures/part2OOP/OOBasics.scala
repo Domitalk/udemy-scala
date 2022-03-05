@@ -11,6 +11,13 @@ object OOBasics extends App {
   // after adding val to constructor this works
   println(person.age)
   person.greet("Dom")
+
+  val author = new Writer("Charles", "Dickens", 1812)
+  val novel = new Novel ("Great Expectations", 1861, author)
+
+  println(novel.authorAge)
+  println(novel.isWrittenBy(author))
+
 }
 // constructor is super simple
 class Person (name: String, val age: Int) {
@@ -32,7 +39,41 @@ class Person (name: String, val age: Int) {
   // aux constructor can only call constructor
   // so it's just a funnel to get defaults? instead you can give defaults for the constructor at the class definition up top=
   def this() = this("John Doe")
+}
 
+class Writer (firstName: String, surName: String, val year: Int) {
+  def fullname: String = {
+    s"$firstName $surName"
+  }
+}
+class Novel (name: String, yearOfRelease: Int, val author: Writer) {
+  def authorAge: Int = {
+    this.yearOfRelease - author.year
+  }
+  def isWrittenBy(author: Writer): Boolean = {
+    this.author == author
+  }
+  def copy(newYearRelease: Int): Novel = {
+    new Novel(name = this.name, yearOfRelease = newYearRelease, author = this.author)
+  }
+}
 
+class Counter(val num: Int) {
+  // a return the count is actually unncessary if there is a val in front of the arg because it effectively recreates a getter when it is a field
+
+  // you want immutable, so return a new entire instance of the variable
+  // and we want returned a new Counter as return val
+  // zero arg methods don't need to be called with () so we can just use the name here
+  def increment = new Counter(num + 1)
+  def decrement = new Counter(num - 1)
+  def increment(n: Int): Counter =  {
+    if (n <= 0) this
+    else increment.increment(n - 1)
+  }
+  def decrement(n: Int): Counter = {
+    if (n <= 0) this
+      // the n-1 is the recursion here because the amount of times it needs to do it is n
+    else decrement.decrement(n - 1)
+  }
 
 }
