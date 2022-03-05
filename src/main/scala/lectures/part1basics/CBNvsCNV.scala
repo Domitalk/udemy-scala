@@ -18,4 +18,16 @@ object CBNvsCNV extends App {
     calledByValue(System.nanoTime())
     calledByName(System.nanoTime())
 
+    def infinite(): Int = 1 + infinite()
+    def printFirst(x: Int, y: => Int) = println(x)
+
+    // you would expect this to crash, but it won't
+    // because the calledByName passes the entire function and it's only called when it's used
+    // and in this case, it's literally never used because only the first argument is used in printFirst
+    // if on the other hand, infinite is the first arg, then it would crash because it's used in printFirst
+    // infinite is supposed to crash bc it calls itself recursively forever after adding 1
+    printFirst(34, infinite())
+
+
+
 }
