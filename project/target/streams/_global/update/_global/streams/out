@@ -1,4 +1,5 @@
-[warn] jline-2.14.6.jar no longer exists at /Users/dominicchu/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar
-[debug] not up to date. inChanged = false, force = false
-[debug] Updating ProjectRef(uri("file:/Users/dominicchu/Development/learning/udemy-scala/project/"), "udemy-scala-build")...
-[debug] Done updating ProjectRef(uri("file:/Users/dominicchu/Development/learning/udemy-scala/project/"), "udemy-scala-build")
+[0m[[0m[0mdebug[0m] [0m[0mnot up to date. inChanged = true, force = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/Users/dominicchu/Development/learning/udemy-scala/project/"), "udemy-scala-build")...[0m
+[0m[[0m[33mwarn[0m] [0m[0mUnrecognized repository Scala Plugin Bundled Repository, ignoring it[0m
+[0m[[0m[33mwarn[0m] [0m[0mUnrecognized repository Scala Plugin Bundled Repository, ignoring it[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone updating ProjectRef(uri("file:/Users/dominicchu/Development/learning/udemy-scala/project/"), "udemy-scala-build")[0m

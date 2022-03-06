@@ -2,6 +2,29 @@ package lectures.part2OOP
 
 import scala.language.postfixOps
 
+
+// INFIX
+// object method params
+// mary.likes("Inception")
+// mary likes "Inception"
+// only works for one arg
+
+// PREFIX
+// mary.unary_!
+// !mary
+// only works for + - ! ~
+
+
+// POSTFIX
+// mary.isAlive
+// mary isAlive
+// only for methods without params
+// rarely used because it can cause confusion
+
+// APPLY
+// special because you can call the object as a function and it'll run apply
+
+
 // Syntactic Sugar
 object MethodNotations extends App {
   // we're inside here so there's no conflict with the other Person class that was created
